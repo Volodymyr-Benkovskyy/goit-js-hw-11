@@ -11,18 +11,16 @@ export class fetchApi {
   }
 
   fetchPhotosByQuery() {
-    const searchParams = {
-      params: {
-        key: fetchApi.API_KEY,
-        q: this.query,
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-        page: this.page,
-        per_page: this.per_page,
-      },
-    };
+    const searchParams = new URLSearchParams({
+      key: fetchApi.API_KEY,
+      q: this.query,
+      image_type: 'photo',
+      orientation: 'horizontal',
+      safesearch: true,
+      page: this.page,
+      per_page: this.per_page,
+    });
 
-    return axios.get(`${fetchApi.BASE_URL}/api`, searchParams);
+    return axios.get(`${fetchApi.BASE_URL}/api/?${searchParams}`);
   }
 }
