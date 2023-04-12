@@ -23,6 +23,6 @@ export class fetchApi {
       },
     };
 
-    return axios.get(`${fetchApi.BASE_URL}/api?`, searchParams);
+    return axios.get(`${fetchApi.BASE_URL}/api`, searchParams);
   }
 }
